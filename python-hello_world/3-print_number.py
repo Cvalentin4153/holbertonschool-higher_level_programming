@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
 number = 98
-street = "Battery Street"
+street = "Battery street"
 
 print(f"{number} {street}")
