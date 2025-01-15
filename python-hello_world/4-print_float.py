@@ -2,7 +2,6 @@
 
 number = 3.14159
 
-formatted_num = "%.2f"%number
+formatted_num = "{:.2f}".format(number)
 
-print(f"Float: {formatted_num}")
-
+print("Float: {}".format(formatted_num))
