@@ -1,0 +1,57 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test: Simple text with one sentence
+>>> text_indentation("Hello. How are you?")
+Hello.
+<BLANKLINE>
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+<BLANKLINE>
+
+# Test: Text with multiple punctuation characters
+>>> text_indentation("Hello? Are you okay: Yes.")
+Hello?
+<BLANKLINE>
+<BLANKLINE>
+Are you okay:
+<BLANKLINE>
+<BLANKLINE>
+Yes.
+<BLANKLINE>
+<BLANKLINE>
+
+# Test: Text with spaces after punctuation
+>>> text_indentation("Hello.   How are you?   Great: Thanks.")
+Hello.
+<BLANKLINE>
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+<BLANKLINE>
+Great:
+<BLANKLINE>
+<BLANKLINE>
+Thanks.
+<BLANKLINE>
+<BLANKLINE>
+
+# Test: Text with no punctuation
+>>> text_indentation("Hello how are you")
+Hello how are you
+
+# Test: Empty text
+>>> text_indentation("")
+<BLANKLINE>
+
+# Test: Non-string input (integer)
+>>> text_indentation(42)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test: Non-string input (None)
+>>> text_indentation(None)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
