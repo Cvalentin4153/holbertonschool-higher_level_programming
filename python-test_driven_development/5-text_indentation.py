@@ -27,7 +27,12 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Remove extra spaces and ensure proper output formatting
+    # Handle the case where the text is an empty string
+    if text == "":
+        print()
+        return
+
+    # Initialize an empty string for the result
     i = 0
     while i < len(text):
         print(text[i], end="")
