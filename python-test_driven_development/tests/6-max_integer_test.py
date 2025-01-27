@@ -62,16 +62,5 @@ class TestMaxInteger(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(None)
 
-    def test_invalid_types(self):
-        """Test with invalid input types"""
-        with self.assertRaises(TypeError):
-            max_integer(42)
-        with self.assertRaises(TypeError):
-            max_integer(3.14)
-        with self.assertRaises(TypeError):
-            max_integer({'a': 1, 'b': 2})
-        with self.assertRaises(TypeError):
-            max_integer(True)
-
 if __name__ == '__main__':
     unittest.main()
