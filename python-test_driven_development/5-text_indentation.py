@@ -27,20 +27,14 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Replace occurrences of '.', '?', and ':' followed by any spaces
-    # with the punctuation, two new lines, and no trailing spaces
-    result = ""
+    # Remove extra spaces and ensure proper output formatting
     i = 0
-
     while i < len(text):
-        result += text[i]
+        print(text[i], end="")
         if text[i] in ".?:":
-            result += "\n\n"
-            i += 1
-            while i < len(text) and text[i] == " ":
+            print("\n")
+            print()
+            # Skip consecutive spaces after punctuation
+            while i + 1 < len(text) and text[i + 1] == " ":
                 i += 1
-            continue
         i += 1
-
-    # Print the resulting string without extra trailing spaces
-    print(result.strip())
