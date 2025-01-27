@@ -1,0 +1,64 @@
+>>> from 4-print_square import print_square
+
+# Test: Print a 4x4 square
+>>> print_square(4)
+####
+####
+####
+####
+
+# Test: Print a 10x10 square
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+# Test: Print a 1x1 square
+>>> print_square(1)
+#
+
+# Test: Print a 0x0 square (nothing should print)
+>>> print_square(0)
+
+# Test: Negative size
+>>> print_square(-1)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+# Test: Float size
+>>> print_square(4.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test: Float size less than 0
+>>> print_square(-2.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test: Non-integer size (string)
+>>> print_square("5")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test: Non-integer size (None)
+>>> print_square(None)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test: Non-integer size (list)
+>>> print_square([3])
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
