@@ -38,4 +38,4 @@ def say_my_name(first_name, last_name=""):
 
     # Print without adding extra spaces for empty strings
     print("My name is {}{}".format(first_name,
-         f" {last_name}" if last_name else ""))
+         f" {last_name}" if last_name else " "))
