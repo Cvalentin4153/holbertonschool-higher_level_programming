@@ -19,3 +19,12 @@ TypeError: a must be an integer
 -30
 >>> add_integer(1.9, 3.5)
 4
+>>> add_integer(float("inf"), 1)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, float("nan"))
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
