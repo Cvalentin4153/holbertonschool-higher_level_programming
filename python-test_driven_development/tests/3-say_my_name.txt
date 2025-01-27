@@ -1,0 +1,37 @@
+>>> from 3-say_my_name import say_my_name
+
+# Test: Basic usage with both first and last name
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+# Test: Only first name provided
+>>> say_my_name("Bob")
+My name is Bob
+
+# Test: First and last name with different cases
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+# Test: First name is not a string
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test: Last name is not a string
+>>> say_my_name("John", 42)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Test: Empty string for last name
+>>> say_my_name("Alice", "")
+My name is Alice
+
+# Test: Both names as empty strings
+>>> say_my_name("", "")
+My name is 
+
+# Test: Unicode characters in names
+>>> say_my_name("李", "华")
+My name is 李 华
