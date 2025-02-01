@@ -73,7 +73,5 @@ class Rectangle:
 
         if rect_1_area >= rect_2_area:
             return rect_1
-        elif rect_1_area == rect_2_area:
-            return rect_1
         else:
             return rect_2
