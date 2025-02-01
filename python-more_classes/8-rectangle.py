@@ -61,6 +61,7 @@ class Rectangle:
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         rect_1_area = rect_1.area()
         rect_2_area = rect_2.area()
@@ -76,5 +77,3 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
-
-    bigger_or_equal = staticmethod(bigger_or_equal)
