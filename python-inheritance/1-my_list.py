@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Defines a class
+Defines a class named MyList that inherits from list
 """
 
 
