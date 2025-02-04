@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Defines a function"""
+
+
 def is_kind_of_class(obj, a_class):
     """
     Functions checks if obj is instance of a_class.

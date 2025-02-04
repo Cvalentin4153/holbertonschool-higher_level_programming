@@ -2,6 +2,8 @@
 """
 Defines a class MyList.
 """
+
+
 class MyList(list):
     """
     MyList inherits from list.
