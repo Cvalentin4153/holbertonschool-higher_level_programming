@@ -3,12 +3,13 @@
 
 
 class BaseGeometry():
-    def area(self):
-        """
-        Calculate the area.
+    """
+    Calculate the area.
 
-        Raises:
-            Exception: If the area method is not implemented.
-        """
+    Raises:
+        Exception: If the area method is not implemented.
+    """
+
+    def area(self):
 
         raise Exception("area() is not implemented")
