@@ -1,0 +1,38 @@
+# Import the BaseGeometry class
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Create an instance of BaseGeometry
+>>> bg = BaseGeometry()
+
+# Test: Calling area() should raise an exception
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+# Test: integer_validator() should accept a valid integer
+>>> bg.integer_validator("my_number", 10)
+
+# Test: integer_validator() should raise TypeError if value is not an integer
+>>> bg.integer_validator("my_number", "abc")
+Traceback (most recent call last):
+    ...
+TypeError: my_number must be an integer
+
+# Test: integer_validator() should raise TypeError if value is a float
+>>> bg.integer_validator("my_number", 5.5)
+Traceback (most recent call last):
+    ...
+TypeError: my_number must be an integer
+
+# Test: integer_validator() should raise ValueError if value is zero
+>>> bg.integer_validator("my_number", 0)
+Traceback (most recent call last):
+    ...
+ValueError: my_number must be greater than 0
+
+# Test: integer_validator() should raise ValueError if value is negative
+>>> bg.integer_validator("my_number", -5)
+Traceback (most recent call last):
+    ...
+ValueError: my_number must be greater than 0
