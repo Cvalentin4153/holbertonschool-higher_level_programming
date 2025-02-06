@@ -78,3 +78,9 @@ ValueError: my_number must be greater than 0
 
 # Test: integer_validator() should work correctly when name is a single character
 >>> bg.integer_validator("x", 25)
+
+# Test: integer_validator() should raise TypeError if value is a boolean
+>>> bg.integer_validator("my_number", True)
+Traceback (most recent call last):
+    ...
+TypeError: my_number must be an integer
