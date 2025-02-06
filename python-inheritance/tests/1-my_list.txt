@@ -43,3 +43,8 @@
 Traceback (most recent call last):
     ...
 TypeError: '<' not supported between instances of 'str' and 'int'
+
+# Test: Appending a number and printing sorted list
+>>> my_list.append(6)
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5, 6]
