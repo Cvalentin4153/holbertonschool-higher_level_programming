@@ -46,6 +46,17 @@ class BaseGeometry():
             raise ValueError(f"{name} must be greater than 0")
 
 class Rectangle(BaseGeometry):
+        """
+        Initializes a Rectangle with a given width and height.
+
+        Args:
+            width (int): width of the Rectangle.
+            height (int): height of the Rectangle.
+
+        Raises:
+            TypeError: if either width or height is not an integer.
+            ValueError: if either width or height is not greater than 0.
+        """
     def __init__(self, width, height):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
