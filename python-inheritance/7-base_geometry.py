@@ -2,7 +2,7 @@
 """Defines a class BaseGeometry"""
 
 
-class BaseGeometry():
+class BaseGeometry:
     """
     A base class for geometric operations.
 
