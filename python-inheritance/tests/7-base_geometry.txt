@@ -10,77 +10,67 @@ Traceback (most recent call last):
     ...
 Exception: area() is not implemented
 
-# Test: integer_validator() should accept a valid integer
->>> bg.integer_validator("my_number", 10)
+Test integer_validator() with valid inputs:
 
-# Test: integer_validator() should raise TypeError if value is not an integer
->>> bg.integer_validator("my_number", "abc")
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise TypeError if value is a float
->>> bg.integer_validator("my_number", 5.5)
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise TypeError if value is a list
->>> bg.integer_validator("my_number", [1, 2, 3])
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise TypeError if value is a tuple
->>> bg.integer_validator("my_number", (1, 2))
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise TypeError if value is a dictionary
->>> bg.integer_validator("my_number", {"num": 10})
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise TypeError if value is None
->>> bg.integer_validator("my_number", None)
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
-
-# Test: integer_validator() should raise ValueError if value is zero
->>> bg.integer_validator("my_number", 0)
-Traceback (most recent call last):
-    ...
-ValueError: my_number must be greater than 0
-
-# Test: integer_validator() should raise ValueError if value is negative
->>> bg.integer_validator("my_number", -5)
-Traceback (most recent call last):
-    ...
-ValueError: my_number must be greater than 0
-
-# Test: integer_validator() should work correctly with a large positive integer
->>> bg.integer_validator("my_number", 999999999)
-
-# Test: integer_validator() should work correctly with the smallest positive integer (1)
->>> bg.integer_validator("my_number", 1)
-
-# Test: integer_validator() should work correctly with another valid integer
->>> bg.integer_validator("height", 50)
-
-# Test: integer_validator() should work correctly when name is different
->>> bg.integer_validator("width", 42)
-
-# Test: integer_validator() should work correctly when name has spaces
->>> bg.integer_validator("test value", 100)
-
-# Test: integer_validator() should work correctly when name is a single character
->>> bg.integer_validator("x", 25)
-
-# Test: integer_validator() should raise TypeError if value is a boolean
->>> bg.integer_validator("my_number", True)
-Traceback (most recent call last):
-    ...
-TypeError: my_number must be an integer
+> bg.integer_validator("my_int", 12)
+>     >>> bg.integer_validator("width", 89)
+> 
+> Test integer_validator() with invalid types:
+> 
+>     >>> bg.integer_validator("name", "John")
+>     Traceback (most recent call last):
+>     TypeError: name must be an integer
+> 
+>     >>> bg.integer_validator("age", 0)
+>     Traceback (most recent call last):
+>     ValueError: age must be greater than 0
+> 
+>     >>> bg.integer_validator("distance", -4)
+>     Traceback (most recent call last):
+>     ValueError: distance must be greater than 0
+> 
+> Test integer_validator() with non-integer types:
+> 
+>     >>> bg.integer_validator("average", 7.8)
+>     Traceback (most recent call last):
+>     TypeError: average must be an integer
+> 
+>     >>> bg.integer_validator("boolean", True)
+>     Traceback (most recent call last):
+>     TypeError: boolean must be an integer
+> 
+>     >>> bg.integer_validator("complex", 1+2j)
+>     Traceback (most recent call last):
+>     TypeError: complex must be an integer
+> 
+> Test integer_validator() with no arguments:
+> 
+>     >>> bg.integer_validator()
+>     Traceback (most recent call last):
+>     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+> 
+> Test integer_validator() with only one argument:
+> 
+>     >>> bg.integer_validator("age")
+>     Traceback (most recent call last):
+>     TypeError: integer_validator() missing 1 required positional argument: 'value'
+> 
+> Test integer_validator() with too many arguments:
+> 
+>     >>> bg.integer_validator("age", 18, 19)
+>     Traceback (most recent call last):
+>     TypeError: integer_validator() takes 3 positional arguments but 4 were given
+> 
+> Test integer_validator() with additional non-integer types:
+> 
+>     >>> bg.integer_validator("age", (4,))
+>     Traceback (most recent call last):
+>     TypeError: age must be an integer
+> 
+>     >>> bg.integer_validator("age", [3])
+>     Traceback (most recent call last):
+>     TypeError: age must be an integer
+> 
+>     >>> bg.integer_validator("age", True)
+>     Traceback (most recent call last):
+>     TypeError: age must be an integer
