@@ -14,13 +14,15 @@ class Shape(ABC):
 
 class Circle(Shape):
     def __init__(self, radius):
+        if radius < 0:
+            raise ValueError("Radius must be a non-negative number")
         self.radius = radius
 
     def area(self):
-        return self.radius * self.radius * math.pi
+        return (self.radius * self.radius) * math.pi
 
     def perimeter(self):
-        return math.pi * self.radius * 2
+        return (math.pi * self.radius) * 2
 
 
 class Rectangle(Shape):
