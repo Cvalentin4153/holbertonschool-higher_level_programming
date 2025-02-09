@@ -19,10 +19,10 @@ class Bird:
 
 class FlyingFish(Fish, Bird):
     def fly(self):
-        return ("The flying fish is soaring")
+        return ("The flying fish is soaring!")
 
     def swim(self):
-        return ("The flying fish is swimming")
+        return ("The flying fish is swimming!")
 
     def habitat(self):
         return ("The flying fish lives both in water and the sky!")
