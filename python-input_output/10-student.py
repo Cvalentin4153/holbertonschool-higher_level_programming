@@ -24,10 +24,12 @@ class Student:
 
         Args:
             attrs (list, optional): List of attribute names to retrieve.
-        
+
         Returns:
             dict: A dictionary representation of the Student instance.
         """
-        if isinstance(attrs, list) and all(isinstance(attr, str) for attr in attrs):
-            return {key: getattr(self, key) for key in attrs if hasattr(self, key)}
+        if isinstance(attrs, list) and all(isinstance(attr, str)
+                                           for attr in attrs):
+            return {key: getattr(self, key)
+                    for key in attrs if hasattr(self, key)}
         return self.__dict__
