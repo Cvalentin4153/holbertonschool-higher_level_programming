@@ -16,7 +16,7 @@ def pascal_triangle(n):
     sum of the two elements
     directly above them.
     """
-    
+
     if n <= 0:
         return []
 
