@@ -9,7 +9,6 @@ print("Status code:", r.status_code)
 
 if r.status_code == 200:
     posts = r.json()
-    print("Total posts Fetched:", len(posts))
 else:
     print("Failed to fetch data")
 
