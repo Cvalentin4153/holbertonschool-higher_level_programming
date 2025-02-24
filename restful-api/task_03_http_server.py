@@ -22,7 +22,7 @@ class HTTPserver(BaseHTTPRequestHandler):
 
         elif self.path == "/status":
             self.send_response(200)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             json_response  = {b"OK"}
             self.wfile.write(json.dumps(json_response).encode("utf-8"))
@@ -36,7 +36,7 @@ class HTTPserver(BaseHTTPRequestHandler):
 
         else:
             self.send_response(404)
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
             error_response = {b"Endpoint not found"}
             self.wfile.write(json.dumps(error_response).encode("utf-8"))
