@@ -2,11 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# In-memory user database
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-}
+users = {}
 
 @app.route("/")
 def home():
@@ -22,7 +18,7 @@ def status():
 
 @app.route("/users/<username>")
 def get_user(username):
-    user = users.get(username.lower())  # Normalize lookup
+    user = users.get(username.lower())
     if user:
         return jsonify(user)
     return jsonify({"error": "User not found"}), 404
@@ -37,7 +33,7 @@ def add_user():
     if not data or "username" not in data or not data["username"].strip():
         return jsonify({"error": "Username is required"}), 400
 
-    username = data["username"].strip().lower()  # Normalize username
+    username = data["username"].strip().lower()
 
     if username in users:
         return jsonify({"error": "User already exists"}), 400
