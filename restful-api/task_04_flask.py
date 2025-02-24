@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# In-memory user database
 users = {
     "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
     "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
@@ -13,9 +14,7 @@ def home():
 
 @app.route("/data")
 def get_usernames():
-    if not users:
-        return jsonify([])  # Fix: Return an empty list if no users
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.keys())) if users else jsonify([])
 
 @app.route("/status")
 def status():
@@ -23,14 +22,17 @@ def status():
 
 @app.route("/users/<username>")
 def get_user(username):
-    user = users.get(username)
+    user = users.get(username.lower())  # Normalize lookup
     if user:
         return jsonify(user)
     return jsonify({"error": "User not found"}), 404
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    data = request.get_json()
+    try:
+        data = request.get_json(force=True)
+    except:
+        return jsonify({"error": "Invalid JSON data"}), 400
 
     if not data or "username" not in data or not data["username"].strip():
         return jsonify({"error": "Username is required"}), 400
