@@ -14,7 +14,7 @@ def home():
 @app.route("/data")
 def get_usernames():
     if not users:
-        return jsonify([])
+        return jsonify([])  # Fix: Return an empty list if no users
     return jsonify(list(users.keys()))
 
 @app.route("/status")
@@ -32,22 +32,20 @@ def get_user(username):
 def add_user():
     data = request.get_json()
 
-    if not data:
-        return jsonify({"error": "Invalid JSON data"}), 400
-
-    if "username" not in data or not data["username"].strip():
+    if not data or "username" not in data or not data["username"].strip():
         return jsonify({"error": "Username is required"}), 400
 
-    username = data["username"].strip().lower()
+    username = data["username"].strip().lower()  # Normalize username
 
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
-    name = data.get("name", "Unknown")
-    age = data.get("age", 0)
-    city = data.get("city", "Unknown")
-
-    users[username] = {"username": username, "name": name, "age": age, "city": city}
+    users[username] = {
+        "username": username,
+        "name": data.get("name", "Unknown"),
+        "age": data.get("age", 0),
+        "city": data.get("city", "Unknown")
+    }
 
     return jsonify({"message": "User added", "user": users[username]}), 201
 
