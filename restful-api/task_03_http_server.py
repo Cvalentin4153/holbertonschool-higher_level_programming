@@ -24,8 +24,7 @@ class HTTPserver(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            json_response  = {b"OK"}
-            self.wfile.write(json.dumps(json_response).encode("utf-8"))
+            self.wfile.write(b"OK")
 
         elif self.path == "/info":
             self.send_response(200)
@@ -38,8 +37,7 @@ class HTTPserver(BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            error_response = {b"Endpoint not found"}
-            self.wfile.write(json.dumps(error_response).encode("utf-8"))
+            self.wfile.write(b"404 Not Found")
 
 def run_server(port=8000):
     server_address = ("", port)
