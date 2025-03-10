@@ -50,9 +50,9 @@ if __name__ == "__main__":
 
     cursor.execute("""
         SELECT * FROM states
-        WHERE name = '{}'
+        WHERE name = %s
         ORDER BY id ASC
-    """.format(state_name))
+    """(state_name))
 
     # Fetch and display results
     for row in cursor.fetchall():
