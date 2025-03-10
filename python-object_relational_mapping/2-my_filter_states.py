@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-Lists all states from the database hbtn_0e_0_usa that match a given name.
+Lists all states from the database
+hbtn_0e_0_usa that match a given name.
 
 Usage:
-    ./2-my_filter_states.py <mysql_username> <mysql_password> <database_name> <state_name>
+    ./2-my_filter_states.py
+    <mysql_username> <mysql_password> <database_name> <state_name>
 
 Arguments:
     mysql_username (str): The MySQL username.
@@ -46,12 +48,13 @@ if __name__ == "__main__":
     # Create a cursor object
     cursor = conn.cursor()
 
-    # ✅ Use `format()` to insert user input into SQL query
+    # Create query object
     query = """
     SELECT * FROM states
     WHERE name = %s
     ORDER BY id ASC
     """
+    # Execute query
     cursor.execute(query, (state_name,))
 
     # Fetch and display results
