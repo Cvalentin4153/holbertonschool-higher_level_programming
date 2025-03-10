@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # Create query object
     query = """
     SELECT * FROM states
-    WHERE name = %s
+    WHERE BINARY name = %s
     ORDER BY id ASC
     """
     # Execute query
