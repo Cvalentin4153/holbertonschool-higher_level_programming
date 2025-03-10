@@ -6,6 +6,7 @@ Contains the class definition of a State and an instance of Base.
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
+
 # Create the Base instance
 Base = declarative_base()
 
