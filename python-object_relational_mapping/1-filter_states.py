@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Create a cursor and execute query.
     cursor = conn.cursor()
     cursor.execute
-    ("SELECT * FROM states WHERE states.name like 'N%' ORDER BY states.id ASC")
+    ("SELECT * FROM states WHERE states.name LIKE 'N%' ORDER BY states.id ASC")
     # Fetch and display results.
     rows = cursor.fetchall()
     for row in rows:
