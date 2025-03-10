@@ -47,12 +47,12 @@ if __name__ == "__main__":
     cursor = conn.cursor()
 
     # ✅ Use `format()` to insert user input into SQL query
-
-    cursor.execute("""
-        SELECT * FROM states
-        WHERE name = %s
-        ORDER BY id ASC
-    """(state_name))
+    query = """
+    SELECT * FROM states
+    WHERE name = %s
+    ORDER BY id ASC
+    """
+    cursor.execute(query, (state_name,))
 
     # Fetch and display results
     for row in cursor.fetchall():
