@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """
-
+Lists all states from the database hbtn_0e_0_usa starting with 'N'.
+Takes 3 arguments: MySQL username, MySQL password, and database name.
+Results are sorted in ascending order by states.id.
+Uses MySQLdb to connect to a MySQL server running on localhost at port 3306.
 """
 import MySQLdb
 import sys
