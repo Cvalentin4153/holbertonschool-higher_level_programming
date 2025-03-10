@@ -14,11 +14,11 @@ if __name__ == "__main__":
 
 # Connect to MySQL server.
 conn = MySQLdb.connect(
-    host = "localhost",
-    username = username,
-    password = password,
-    db_name = db_name,
-    port = 3306
+    host="localhost",
+    user=username,
+    passwd=password,
+    db=db_name,
+    port=3306
 )
 # Create a cursor and execute query.
 cursor = conn.cursor()
