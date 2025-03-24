@@ -1,0 +1,20 @@
+{% include 'header.html' %}
+        <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+            <h1>Items List</h1>
+            
+            {% if items %}
+                <p>Here are our available items:</p>
+                <ul>
+                    {% for item in items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="color: #666; font-style: italic;">No items found</p>
+            {% endif %}
+            
+            <div style="margin-top: 2rem;">
+                <p>Total items: {{ items|length }}</p>
+            </div>
+        </div>
+{% include 'footer.html' %} 
