@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+        <div style="padding: 2rem; max-width: 800px; margin: 0 auto;">
+            <h1>Products Display</h1>
+            
+            {% if error %}
+                <div style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+                    {{ error }}
+                </div>
+            {% else %}
+                <p>Displaying products from {{ source }} source:</p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa;">
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #dee2e6;">Name</th>
+                            <th style="padding: 0.75rem; text-align: left; border-bottom: 2px solid #dee2e6;">Category</th>
+                            <th style="padding: 0.75rem; text-align: right; border-bottom: 2px solid #dee2e6;">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">{{ product.name }}</td>
+                                <td style="padding: 0.75rem; border-bottom: 1px solid #dee2e6;">{{ product.category }}</td>
+                                <td style="padding: 0.75rem; text-align: right; border-bottom: 1px solid #dee2e6;">${{ "%.2f"|format(product.price) }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 1rem;">
+                    <p>Total products: {{ products|length }}</p>
+                </div>
+            {% endif %}
+            
+            <div style="margin-top: 2rem;">
+                <h2>Try different queries:</h2>
+                <ul>
+                    <li><a href="/products?source=json">View all JSON products</a></li>
+                    <li><a href="/products?source=csv">View all CSV products</a></li>
+                    <li><a href="/products?source=json&id=1">View JSON product with ID 1</a></li>
+                    <li><a href="/products?source=csv&id=2">View CSV product with ID 2</a></li>
+                </ul>
+            </div>
+        </div>
+{% include 'footer.html' %} 
